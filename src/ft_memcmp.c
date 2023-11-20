@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:12:05 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:11:25 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:09:14 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	const unsigned char	*str2;
 	size_t				i;
 
+	if (!s1 || !s2)
+		return (ERROR);
 	i = 0;
 	str1 = (const unsigned char *)s1;
 	str2 = (const unsigned char *)s2;

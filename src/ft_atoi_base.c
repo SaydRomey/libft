@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:46:41 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/24 15:10:42 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/03 11:43:59 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static int	get_value(char c)
 	char	*base_upper;
 	int		i;
 
-	base_lower = "0123456789abcdef";
-	base_upper = "0123456789ABCDEF";
+	base_lower = HEX_LO;
+	base_upper = HEX_UP;
 	i = 0;
 	while (base_lower[i])
 	{
@@ -47,6 +47,11 @@ static int	check_sign(const char *str, int *index)
 	return (sign);
 }
 
+/*
+Converts a string to an integer
+according to the given base
+overflow: undefined behavior
+*/
 int	ft_atoi_base(const char *str, int base)
 {
 	int	result;

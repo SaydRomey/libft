@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:22:24 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 17:47:38 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:02:10 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*ptr;
 	size_t			i;
 
+	if (!s)
+		return ;
 	ptr = (unsigned char *)s;
 	i = 0;
 	while (i < n)

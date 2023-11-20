@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:13:15 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 18:00:43 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/11/03 20:45:15 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 }
 
 /*
-removes a node from a list and connect the previous node to the next one
+removes a node from a list (using the function 'del')
+and connects the previous node to the next one
 (without breaking the chain)
 */
 void	ft_lstremoveone(t_list **head, t_list *to_remove, void (*del)(void *))

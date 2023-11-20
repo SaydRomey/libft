@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlhas.c                                       :+:      :+:    :+:   */
+/*   char_count.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 18:08:53 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 18:08:56 by cdumais          ###   ########.fr       */
+/*   Created: 2023/10/03 11:31:15 by cdumais           #+#    #+#             */
+/*   Updated: 2023/10/03 11:39:03 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
-
 /*
-returns the number of instances of a character in a string
-(need to find proper function name)
+returns the number of instances of 'c' in 'str'
 */
-size_t	ft_strlhas(const char *str, int c)
+int	char_count(char *str, char c)
 {
-	size_t	count;
+	int	i;
+	int	count;
 
+	i = 0;
 	count = 0;
-	while (*str)
+	while (str[i])
 	{
-		if (*str == c)
-			count++;
-		str++;
+		if (str[i] == c)
+			count += 1;
+		i++;
 	}
 	return (count);
-}
-
-/*
-checks if a string contains a character
-*/
-int	ft_str_has(const char *str, int c)
-{
-	while (*str)
-	{
-		if (*str == c)
-			return (TRUE);
-		str++;
-	}
-	return (FALSE);
 }

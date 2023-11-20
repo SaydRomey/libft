@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:46:10 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:15:51 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:03:20 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,13 @@ size_t	ft_putstr_fd(char *str, int fd)
 	}
 	length = write(fd, str, ft_strlen(str));
 	return (length);
+}
+
+/*
+calls 'ft_putstr_fd' on standard output
+returns the number of bytes written (excluding the terminating null byte)
+*/
+size_t	ft_putstr(char *str)
+{
+	return (ft_putstr_fd(str, FD_OUTPUT));
 }

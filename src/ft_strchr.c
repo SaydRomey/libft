@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:44:20 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 18:08:16 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/25 12:25:58 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	while (s[i] != '\0')
 	{

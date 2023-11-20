@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:08:06 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:08:09 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/04 23:12:15 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_split(char **split)
 	int	i;
 
 	i = 0;
-	while (split[i])
+	while (split[i] != NULL)
 	{
 		free(split[i]);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:49:06 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:43:19 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:20:52 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	*ft_substr(const char *str, unsigned int start, size_t len)
 	size_t	str_len;
 	size_t	i;
 
+	if (!str)
+		return (NULL);
 	str_len = 0;
 	while (str[str_len] != '\0')
 		str_len++;
@@ -50,6 +52,8 @@ char	*ft_substr(const char *str, unsigned int start, size_t len)
 	char	*substr;
 	size_t	str_len;
 
+	if (!str)
+		return (NULL);
 	str_len = ft_strlen(str);
 	if (start >= str_len)
 		return (NULL);

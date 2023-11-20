@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:06:02 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 11:54:22 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:05:43 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	fill_buffer(int n, char *buffer)
 
 /*
 iterative implementation of ft_putnbr_fd
-modified to return the number of digits printed
+returns the number of digits printed
 outputs the number n to the given file descriptor
 */
 size_t	ft_putnbr_fd(int n, int fd)
@@ -83,8 +83,17 @@ size_t	ft_putnbr_fd(int n, int fd)
 	return (size);
 }
 
+/*
+calls 'ft_putnbr_fd' on standard output
+returns the number of digits printed
+*/
+size_t	ft_putnbr(int n)
+{
+	return (ft_putnbr_fd(n, FD_OUTPUT));
+}
+
 /* recursive implementation of ft_putnbr_fd
-modified to return the number of digits printed
+returns the number of digits printed
 outputs the number n to the given file descriptor
 
 size_t	ft_putnbr_fd(int n, int fd)

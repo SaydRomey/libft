@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:16:44 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:11:18 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:08:48 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	const unsigned char	*src;
 	unsigned char		target;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	src = (const unsigned char *)s;
 	target = (unsigned char)c;

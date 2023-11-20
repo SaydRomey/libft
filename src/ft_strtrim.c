@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:06:07 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 14:26:12 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:20:26 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ char	*ft_strtrim(const char *str, const char *set)
 	size_t	start;
 	size_t	end;
 
+	if (!str || !set)
+		return (NULL);
 	start = find_trimmed_start(str, set);
 	end = find_trimmed_end(str, set, start);
 	return (allocate_and_copy(str, start, end));

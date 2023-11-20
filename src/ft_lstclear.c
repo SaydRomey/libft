@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:24:16 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/22 19:36:56 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/21 01:07:18 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*next;
 	t_list	*current;
 
+	if (!lst || !del)
+		return ;
 	current = *lst;
 	while (current)
 	{

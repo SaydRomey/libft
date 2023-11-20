@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 17:45:58 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 17:45:59 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/09 17:36:07 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 /*
 returns TRUE if ft_itoa and ft_atoi return different values
+** usage: int overflow = flow_check("2147483648"); *
 */
 int	flow_check(char *input)
 {

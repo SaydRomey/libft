@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:15:34 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 18:08:34 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:21:50 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strdup(const char *src)
 	return (new_str);
 }
 
-/*
+/* 
 char	*ft_strdup(const char *src)
 {
 	char	*new_str;

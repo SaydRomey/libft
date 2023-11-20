@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:41:19 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/22 19:41:25 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/21 01:04:09 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_node;
 	void	*content;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
 	while (lst)

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:36:17 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/22 23:45:58 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:17:01 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	dst_len;
 	size_t	src_len;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
@@ -44,6 +46,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	src_len;
 	size_t	dst_len;
 	
+	if (!dst || !src)
+		return (0);
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
 	if (dstsize == 0 || dstsize <= dst_len)

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:24:29 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:18:09 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/21 01:33:58 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /*
 applies the effect of 'function' to each character of the string 'str'
-**to test*
 */
 void	ft_striteri(char *str, void (*function)(unsigned int, char *))
 {

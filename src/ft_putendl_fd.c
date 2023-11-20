@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:01:06 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:14:28 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/10 10:03:57 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,13 @@ size_t	ft_putendl_fd(char *str, int fd)
 	out += ft_putstr_fd(str, fd);
 	out += ft_putchar_fd('\n', fd);
 	return (out);
+}
+
+/*
+calls 'ft_putendl_fd' on standard output
+returns the number of characters written.
+*/
+size_t	ft_putendl(char *str)
+{
+	return (ft_putendl_fd(str, FD_OUTPUT));
 }

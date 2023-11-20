@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:26:10 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:15:58 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:21:20 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,21 @@ static char	*get_next_word(const char *str, char c, const char **new_position)
 }
 
 /*
-frees the array of strings and returns NULL
+frees the array of strings
+(already in libft)
 */
-static void	*free_split_null(char **split)
-{
-	size_t	i;
+// static void	free_split(char **split)
+// {
+// 	int	i;
 
-	i = 0;
-	while (split[i] != NULL)
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-	return (NULL);
-}
+// 	i = 0;
+// 	while (split[i] != NULL)
+// 	{
+// 		free(split[i]);
+// 		i++;
+// 	}
+// 	free(split);
+// }
 
 /*
 returns an array of strings, 
@@ -111,7 +111,7 @@ char	**ft_split(const char *str, char c)
 		{
 			split_strings[i] = get_next_word(str, c, &str);
 			if (!split_strings[i])
-				return (free_split_null(split_strings));
+				return (free_split(split_strings), NULL);
 			i++;
 		}
 		else

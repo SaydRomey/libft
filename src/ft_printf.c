@@ -6,36 +6,36 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:51:47 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 11:48:35 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/11/10 23:41:13 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
-static int	check_format(va_list args, char *str, int i)
+static int	check_format(va_list args, char *str, int i, int fd)
 {
 	int	len;
 
 	len = 0;
 	if (str[i] == 'c')
-		len = ft_putchar_fd(va_arg(args, int), 1);
+		len = ft_putchar_fd(va_arg(args, int), fd);
 	else if (str[i] == 's')
-		len = ft_putstr_fd(va_arg(args, char *), 1);
+		len = ft_putstr_fd(va_arg(args, char *), fd);
 	else if (str[i] == 'p')
 	{
-		len = ft_putstr_fd("0x", 1);
-		len += ft_putnbr_base_fd(va_arg(args, unsigned long long), 1, HEX_LO);
+		len = ft_putstr_fd("0x", fd);
+		len += ft_putnbr_base_fd(va_arg(args, unsigned long long), fd, HEX_LO);
 	}
 	else if (str[i] == 'd' || str[i] == 'i')
-		len = ft_putnbr_fd(va_arg(args, int), 1);
+		len = ft_putnbr_fd(va_arg(args, int), fd);
 	else if (str[i] == 'u')
-		len = ft_putnbr_base_fd(va_arg(args, unsigned int), 1, DECIMAL);
+		len = ft_putnbr_base_fd(va_arg(args, unsigned int), fd, DECIMAL);
 	else if (str[i] == 'x')
-		len = ft_putnbr_base_fd(va_arg(args, unsigned int), 1, HEX_LO);
+		len = ft_putnbr_base_fd(va_arg(args, unsigned int), fd, HEX_LO);
 	else if (str[i] == 'X')
-		len = ft_putnbr_base_fd(va_arg(args, unsigned int), 1, HEX_UP);
+		len = ft_putnbr_base_fd(va_arg(args, unsigned int), fd, HEX_UP);
 	else if (str[i] == '%')
-		len = write(1, "%", 1);
+		len = ft_putchar_fd('%', fd);
 	return (len);
 }
 
@@ -54,11 +54,39 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			len += check_format(args, (char *)str, i + 1);
+			len += check_format(args, (char *)str, i + 1, FD_OUTPUT);
 			i++;
 		}
 		else
-			len += write(1, &str[i], 1);
+			len += ft_putchar_fd(str[i], FD_OUTPUT);
+	}
+	va_end(args);
+	return (len);
+}
+
+/*
+same as ft_printf but writes to a file descriptor
+*/
+int	ft_fprintf(int fd, const char *str, ...)
+{
+	int		i;
+	int		len;
+	va_list	args;
+
+	va_start(args, str);
+	i = -1;
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[++i])
+	{
+		if (str[i] == '%')
+		{
+			len += check_format(args, (char *)str, i + 1, fd);
+			i++;
+		}
+		else
+			len += ft_putchar_fd(str[i], fd);
 	}
 	va_end(args);
 	return (len);
@@ -66,7 +94,6 @@ int	ft_printf(const char *str, ...)
 
 /*
 same as ft_printf but takes a va_list as argument
-(implemented to use in va_exit_error)
 */
 int	ft_vprintf(const char *str, va_list args)
 {
@@ -81,11 +108,37 @@ int	ft_vprintf(const char *str, va_list args)
 	{
 		if (str[i] == '%')
 		{
-			len += check_format(args, (char *)str, i + 1);
+			len += check_format(args, (char *)str, i + 1, FD_OUTPUT);
 			i++;
 		}
 		else
-			len += write(1, &str[i], 1);
+			len += ft_putchar_fd(str[i], FD_OUTPUT);
+	}
+	return (len);
+}
+
+/*
+same as ft_printf but takes a va_list as argument
+and writes to a file descriptor
+*/
+int	ft_vfprintf(int fd, const char *str, va_list args)
+{
+	int		i;
+	int		len;
+
+	i = -1;
+	len = 0;
+	if (!str)
+		return (0);
+	while (str[++i])
+	{
+		if (str[i] == '%')
+		{
+			len += check_format(args, (char *)str, i + 1, fd);
+			i++;
+		}
+		else
+			len += ft_putchar_fd(str[i], fd);
 	}
 	return (len);
 }

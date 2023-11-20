@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/30 14:28:27 by cdumais           #+#    #+#              #
-#    Updated: 2023/08/30 14:57:38 by cdumais          ###   ########.fr        #
+#    Created: 2023/09/04 18:09:54 by cdumais           #+#    #+#              #
+#    Updated: 2023/11/13 15:11:43 by cdumais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
 # --------------------------------- VARIABLES -------------------------------- #
 # **************************************************************************** #
-
 NAME 		:= libft.a
 
 INC_DIR		:= inc
 SRC_DIR		:= src
 OBJ_DIR		:= obj
-TEST_DIR	:= test
 
 COMPILE		:= gcc
 C_FLAGS		:= -Wall -Wextra -Werror
@@ -29,7 +27,6 @@ AR_FLAGS	:= rcs
 AR_INDEX	:= ranlib
 
 REMOVE		:= rm -rf
-
 # **************************************************************************** #
 # --------------------------------- C FILES ---------------------------------- #
 # *********** libc functions ******************* additonal functions ********* #
@@ -59,13 +56,13 @@ SRC :=			ft_isalpha							ft_substr	  			   \
 				ft_strdup	
 # **************************************************************************** #
 # ----------------------------------- BONUS ---------------------------------- #
-# ********* linked list functions ******************************************** #
+# ********* linked list functions ************** additonal functions ********* #
 # **************************************************************************** #
 SRC +=	 		ft_lstnew													   \
-				ft_lstadd_front												   \
-				ft_lstsize													   \
-				ft_lstlast													   \
-				ft_lstadd_back												   \
+				ft_lstadd_front						ft_lstcpy				   \
+				ft_lstsize							ft_lstsort				   \
+				ft_lstlast							ft_lstswap				   \
+				ft_lstadd_back						ft_lstswitch			   \
 				ft_lstdelone												   \
 				ft_lstclear													   \
 				ft_lstiter													   \
@@ -85,38 +82,46 @@ SRC +=			ft_swap								ft_abs					   \
 				ft_min								ft_isspace				   \
 				ft_max								exit_error				   \
 				flow_check							ft_atoi_base
-													
-# misc #
-SRC +=			ft_free
 # **************************************************************************** #
-# --------------------------------- ALL FILES -------------------------------- #
+SRC +=			ft_free														   \
+				read_check													   \
+				char_count
 # **************************************************************************** #
-# INCS 		:=	$(wildcard $(INC_DIR)/*.h)
-# SRCS		:= $(wildcard $(SRC_DIR)/*.c)
-# OBJS		:=	$(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%.o, $(SRCS))
+# ----------------------------------- MISC  ---------------------------------- #
 # **************************************************************************** #
+SRC +=			ft_strainbow						ft_rand
 # **************************************************************************** #
 # --------------------------------- HEADERS ---------------------------------- #
 # **************************************************************************** #
-INC			:=	libft														   \
+INC	:=			libft														   \
 				libft_utils
 # **************************************************************************** #				
-INCS        :=  $(addprefix $(INC_DIR)/, $(addsuffix .h, $(INC)))
-SRCS        :=  $(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC)))
-OBJS        :=  $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
-
+INCS		:=	$(addprefix $(INC_DIR)/, $(addsuffix .h, $(INC)))
+SRCS		:=	$(addprefix $(SRC_DIR)/, $(addsuffix .c, $(SRC)))
+OBJS		:=	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+# **************************************************************************** #
+# --------------------------------- ALL FILES -------------------------------- #
+# **************************************************************************** #
+# INCS		:=	$(wildcard $(INC_DIR)/*.h)
+# SRCS		:=	$(wildcard $(SRC_DIR)/*.c)
+# OBJS		:=	$(patsubst $(SRC_DIR)/%, $(OBJ_DIR)/%.o, $(SRCS))
 # **************************************************************************** #
 # ---------------------------------- RULES ----------------------------------- #
 # **************************************************************************** #
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(BOLD)$(PURPLE)$(NAME)$(GREEN) created$(RESET)"
-	@echo "$(GREEN)$$TITLE$(RESET)"
-	@echo "Executed by $(ITALIC)$(BOLD)$(PURPLE)$(USER)$(RESET) \
-		$(CYAN)$(TIME)$(RESET)\n"
+	@echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)]\\t$(GREEN)created$(RESET)"
 	@$(ARCHIVE) $(AR_FLAGS) $(NAME) $(OBJS)
 	@$(AR_INDEX) $(NAME)
+
+# $(NAME): $(OBJS)
+# 	@echo "$(BOLD)$(PURPLE)$(NAME)$(RESET)$(GREEN) created$(RESET)"
+# 	@echo "$(GREEN)$$TITLE$(RESET)"
+# 	@echo "Executed by $(ITALIC)$(BOLD)$(PURPLE)$(USER)$(RESET) \
+# 		$(CYAN)$(TIME)$(RESET)\n"
+# 	@$(ARCHIVE) $(AR_FLAGS) $(NAME) $(OBJS)
+# 	@$(AR_INDEX) $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS) | $(OBJ_DIR)
 	@echo "$(CYAN)Compiling...$(ORANGE)\t$(notdir $<)$(RESET)"
@@ -129,42 +134,41 @@ $(OBJ_DIR):
 clean:
 	@if [ -n "$(wildcard $(OBJS)*.o)" ]; then \
 		$(REMOVE) $(OBJ_DIR); \
-		echo "$(GREEN)Object files removed$(RESET)"; \
+		echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)] \
+		$(GREEN)Object files removed$(RESET)"; \
 	else \
-		echo "$(YELLOW)No object files to remove$(RESET)"; \
+		echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)] \
+		$(YELLOW)No object files to remove$(RESET)"; \
 	fi
 
 fclean: clean
 	@if [ -n "$(wildcard $(NAME))" ]; then \
 		$(REMOVE) $(NAME); \
-		echo "$(BOLD)$(PURPLE)$(NAME)$(GREEN) removed$(RESET)"; \
+		echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)] \
+		$(GREEN)Library removed$(RESET)"; \
 	else \
-		echo "$(YELLOW)No library to remove$(RESET)"; \
+		echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)] \
+		$(YELLOW)No library to remove$(RESET)"; \
 	fi
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
-# **************************************************************************** #
-bonus: all
-
-run: $(NAME)
-	@$(COMPILE) $(C_FLAGS) -I$(INC_DIR) -o test_program misc/test.c -L. -lft
-	@./test_program
-	@$(REMOVE) test_program
-
-.PHONY: bonus run
-
 # **************************************************************************** #
 # -------------------------------- NORMINETTE -------------------------------- #
 # **************************************************************************** #
-norm: $(NAME)
-		norminette -R CheckForbiddenSourceHeader src/*.c
-		norminette -R CheckDefine inc/*.h
+norm:
+	@echo "$(BOLD)$(YELLOW)Norminetting $(PURPLE)$(NAME)$(RESET)"
+	@norminette -o $(INCS)
+	@norminette -o $(SRCS)
 
-.PHONY: norm
+nm:
+	@echo "$(BOLD)$(YELLOW)Functions in $(PURPLE)$(UNDERLINE)$(NAME)$(RESET):"
+	@nm $(NAME) | grep U | grep -v 'ft_' \
+				| sed 's/U//g' | sed 's/__//g' | sed 's/ //g' \
+				| sort | uniq
 
+.PHONY: norm nm
 # **************************************************************************** #
 # ------------------------------- DECORATIONS -------------------------------- #
 # **************************************************************************** #
@@ -175,22 +179,23 @@ define TITLE
 ██      ██ ██████  █████      ██    
 ██      ██ ██   ██ ██         ██    
 ███████ ██ ██████  ██         ██   
-                                    
+
 endef
 export TITLE
 
-USER	=$(shell whoami)
-TIME	=$(shell date "+%H:%M:%S")
+USER		:=$(shell whoami)
+TIME		:=$(shell date "+%H:%M:%S")
 
 title:
-	@echo "$(BOLD)$(PURPLE)$(NAME)$(GREEN) created$(RESET)"
+	@echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)]\\t$(GREEN)created$(RESET)"
 	@echo "$(GREEN)$$TITLE$(RESET)"
 	@echo "Executed by $(ITALIC)$(BOLD)$(PURPLE)$(USER)$(RESET) \
 		$(CYAN)$(TIME)$(RESET)\n"
 
+.PHONY: title
 # **************************************************************************** #
-
-# *********************************** ANSI *********************************** #
+# ----------------------------------- ANSI ----------------------------------- #
+# **************************************************************************** #
 # ****** https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797 ******* #
 
 ESC			:= \033
@@ -219,12 +224,12 @@ TOP_LEFT	:= $(ESC)[1;1H
 ERASE_REST	:= $(ESC)[K
 ERASE_LINE	:= $(ESC)[2K
 ERASE_ALL	:= $(ESC)[2J
-
-# ********************************** COLORS ********************************** #
+# **************************************************************************** #
+# ---------------------------------- COLORS ---------------------------------- #
+# **************************************************************************** #
 # Text
 BLACK		:= $(ESC)[30m
 RED			:= $(ESC)[91m
-# GREEN		:= $(ESC)[92m
 GREEN		:= $(ESC)[32m
 YELLOW		:= $(ESC)[93m
 ORANGE		:= $(ESC)[38;5;208m
@@ -233,7 +238,6 @@ PURPLE		:= $(ESC)[95m
 CYAN		:= $(ESC)[96m
 WHITE		:= $(ESC)[37m
 GRAY		:= $(ESC)[90m
-
 
 # Background
 BG_BLACK	:= $(ESC)[40m
@@ -246,43 +250,9 @@ BG_PURPLE	:= $(ESC)[105m
 BG_CYAN		:= $(ESC)[106m
 BG_WHITE	:= $(ESC)[47m
 BG_GRAY		:= $(ESC)[100m
-
-# **************************************************************************** #
-# --------------------------------- TESTS ------------------------------------ #
 # **************************************************************************** #
 
-colortest:
-	@for i in $$(seq 0 255); do \
-		printf "$(ESC)[38;5;$$i;48;5;$$((i+1))m█$(RESET)"; \
-	done
-
-ansi:
-	@echo "\n"
-	@echo "\t$(BOLD)$(UNDERLINE)Text$(RESET)\t\t$(INVERT)Background\n$(RESET)"
-	@echo "$(ITALIC)printf$(RESET)"
-	@printf "\t$(RED)"red"$(RESET)\t\t$(BG_RED)"bg_red"$(RESET)\n"
-	@printf "\t$(GREEN)green$(RESET)\t\t$(BG_GREEN)bg_green$(RESET)\n"
-	@printf "\t$(YELLOW)yellow$(RESET)\t\t$(BG_YELLOW)bg_yellow$(RESET)\n"
-	@printf "\t$(ORANGE)"orange"$(RESET)\t\t$(BG_ORANGE)"bg_orange"$(RESET)\n"
-	@printf "\t$(BLUE)blue$(RESET)\t\t$(BG_BLUE)bg_blue$(RESET)\n"
-	@printf "\t$(PURPLE)purple$(RESET)\t\t$(BG_PURPLE)bg_purple$(RESET)\n"
-	@printf "\t$(CYAN)cyan$(RESET)\t\t$(BG_CYAN)bg_cyan$(RESET)\n"
-	@printf "\t$(WHITE)white$(RESET)\t\t$(BG_WHITE)bg_white$(RESET)\n"
-	@printf "\t$(GRAY)gray$(RESET)\t\t$(BG_GRAY)bg_gray$(RESET)\n"
-
-	@echo "$(ITALIC)echo$(RESET)"
-	@echo "\t$(RED)"red"$(RESET)\t\t$(BG_RED)"bg_red"$(RESET)"
-	@echo "\t$(GREEN)green$(RESET)\t\t$(BG_GREEN)bg_green$(RESET)"
-	@echo "\t$(YELLOW)yellow$(RESET)\t\t$(BG_YELLOW)bg_yellow$(RESET)"
-	@echo "\t$(ORANGE)"orange"$(RESET)\t\t$(BG_ORANGE)"bg_orange"$(RESET)"
-	@echo "\t$(BLUE)blue$(RESET)\t\t$(BG_BLUE)bg_blue$(RESET)"
-	@echo "\t$(PURPLE)purple$(RESET)\t\t$(BG_PURPLE)bg_purple$(RESET)"
-	@echo "\t$(CYAN)cyan$(RESET)\t\t$(BG_CYAN)bg_cyan$(RESET)"
-	@echo "\t$(WHITE)white$(RESET)\t\t$(BG_WHITE)bg_white$(RESET)"
-	@echo "\t$(GRAY)gray$(RESET)\t\t$(BG_GRAY)bg_gray$(RESET)"
-	@echo "\n"
-
-.PHONY: colortest ansi
+# all: $(NAME)
 
 # $(NAME): $(OBJS)
 # 	$(ARCHIVE) $(AR_FLAGS) $(NAME) $(OBJS)
@@ -299,3 +269,5 @@ ansi:
 
 # fclean: clean
 # 	$(REMOVE) $(NAME)
+
+# re: fclean all

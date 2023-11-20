@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:19:22 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/22 19:34:58 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:08:13 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_lstsize(t_list *lst)
 {
 	int	size;
 
+	if (!lst)
+		return (0);
 	size = 0;
 	while (lst)
 	{

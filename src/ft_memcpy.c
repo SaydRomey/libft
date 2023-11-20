@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:25:46 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/29 18:01:20 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:11:06 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char		*dst_ptr;
 	const unsigned char	*src_ptr;
 
-	if (!dst && !src)
+	if (!dst || !src)
 		return (NULL);
 	dst_ptr = (unsigned char *)dst;
 	src_ptr = (const unsigned char *)src;

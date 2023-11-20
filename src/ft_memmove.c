@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:28:25 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:12:26 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/10/09 17:35:34 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*d;
 	char	*s;
 
-	d = (char *)dst;
-	s = (char *)src;
 	if (!dst && !src)
 		return (dst);
+	d = (char *)dst;
+	s = (char *)src;
 	if (src < dst)
 		while (len--)
 			d[len] = s[len];

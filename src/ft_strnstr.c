@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 12:16:06 by cdumais           #+#    #+#             */
-/*   Updated: 2023/08/30 12:20:17 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/09/07 01:19:26 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	little_len;
 	size_t	i;
 
+	if (!big || !little)
+		return (NULL);
 	little_len = ft_strlen(little);
 	if (little_len == 0)
 		return ((char *)big);
