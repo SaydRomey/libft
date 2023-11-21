@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:49:35 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/13 20:55:43 by cdumais          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:49:33 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,13 +191,15 @@ typedef unsigned long long	t_u64;
 
 // multiplier for the LCG
 // common choice to ensure a long period and a good distribution
-#define LCG_MULT 1103515245
+# define LCG_MULT 1103515245
 
 // add to the seed at each iteration
 // to avoid a sequence of 0s (works well with LCG_MULT)
-#define LCG_INCR 12345
+# define LCG_INCR 12345
 
 // dividing by 65536 (2^16) shifts the seed 16 bits to the right,
 // discarding the lower 16 bits
-#define LCG_DIV 65536
+# define LCG_DIV 65536
+
+// 
 #endif
