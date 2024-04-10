@@ -6,9 +6,11 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 12:55:19 by cdumais           #+#    #+#             */
-/*   Updated: 2024/04/10 12:55:25 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/04/10 13:51:50 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_wrap(int value, int min, int max)
 {
