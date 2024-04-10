@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_wrap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 12:12:43 by cdumais           #+#    #+#             */
-/*   Updated: 2024/04/10 12:52:11 by cdumais          ###   ########.fr       */
+/*   Created: 2024/04/10 12:55:19 by cdumais           #+#    #+#             */
+/*   Updated: 2024/04/10 12:55:25 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
-
-int	ft_min(int this, int that)
+int	ft_wrap(int value, int min, int max)
 {
-	if (this < that)
-		return (this);
-	else
-		return (that);
-}
+	int	range;
 
-size_t	ft_zmin(size_t this, size_t that)
-{
-	if (this < that)
-		return (this);
+	range = max - min + 1;
+	if (value > max)
+		return (min + (value - min) % range);
+	else if (value < min)
+		return (max - (min - value -1) % range);
 	else
-		return (that);
-}
-
-float	ft_fmin(float this, float that)
-{
-	if (this < that)
-		return (this);
-	else
-		return (that);
+		return (value);
 }

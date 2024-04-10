@@ -6,14 +6,14 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:40 by cdumais           #+#    #+#             */
-/*   Updated: 2023/10/24 15:24:23 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/04/10 12:46:13 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
 /*
-Iterates the list 'lst' 
+iterates the list 'lst' 
 and applies the function f to the content of each node
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *))

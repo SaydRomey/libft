@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:49:30 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/13 15:00:13 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/04/10 13:05:33 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int		ft_isxdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-// int  ft_ispunct(int c);
 // 
 int		ft_isspace(int c);
 int		ft_isblank(int c);
@@ -62,13 +61,10 @@ int		ft_atoi_base(const char *str, int base);
 /* ************************** Functions using malloc ************************ */
 // 
 void	*ft_calloc(size_t count, size_t size);
-// void	*ft_recalloc(void *ptr, size_t new_size);
-// void	*ft_recalloc_safe(void *ptr, size_t new_size, size_t old_size);
 char	*ft_strdup(const char *src);
 char	*ft_substr(const char *str, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strjoin_with(char *s1, char *delimiter, char *s2);
-// char	*ft_vstrjoin(char *first, ...);
 char	*ft_strtrim(const char *str, const char *set);
 char	**ft_split(const char *str, char c);
 char	*ft_itoa(int n);
@@ -108,6 +104,8 @@ void	ft_lstswitch(t_list **head, t_list *a, t_list *b);
 t_list	*ft_lstsort(t_list *lst, t_cmp cmp_func);
 // void	ft_lstsort_list(t_list *lst, t_cmp cmp_func);
 // 
+t_list	*ft_lstget(t_list *lst, int index);
+// 
 /* ********************************** GNL *********************************** */
 //
 char	*get_next_line(int fd);
@@ -127,8 +125,10 @@ size_t	ft_putnbr_base_fd(size_t n, int fd, const char *base_format);
 void	ft_swap(int *a, int *b);
 int		ft_min(int this, int that);
 size_t	ft_zmin(size_t this, size_t that);
+float	ft_fmin(float this, float that);
 int		ft_max(int this, int that);
 size_t	ft_zmax(size_t this, size_t that);
+float	ft_fmax(float this, float that);
 // 
 /* *********************************** FDF ********************************** */
 // 
@@ -154,5 +154,11 @@ int		char_count(char *str, char c);
 void	ft_strainbow(char *str, int new_line);
 char	*color_str(char *str, char *color_code);
 int		ft_rand(int min, int max);
+// 
+/* ********************************** MATH ********************************** */
+// 
+int		ft_clamp(int value, int min, int max);
+float	ft_fclamp(float value, float min, float max);
+int		ft_wrap(int value, int min, int max);
 // 
 #endif

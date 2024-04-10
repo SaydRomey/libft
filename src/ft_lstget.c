@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_lstget.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 12:12:43 by cdumais           #+#    #+#             */
-/*   Updated: 2024/04/10 12:52:11 by cdumais          ###   ########.fr       */
+/*   Created: 2024/04/10 12:45:26 by cdumais           #+#    #+#             */
+/*   Updated: 2024/04/10 12:47:12 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/libft.h"
+#include "libft.h"
 
-int	ft_min(int this, int that)
+/*
+returns the node at index 'index'
+*/
+t_list	*ft_lstget(t_list *lst, int index)
 {
-	if (this < that)
-		return (this);
-	else
-		return (that);
-}
+	t_list	*tmp;
+	int		i;
 
-size_t	ft_zmin(size_t this, size_t that)
-{
-	if (this < that)
-		return (this);
-	else
-		return (that);
-}
-
-float	ft_fmin(float this, float that)
-{
-	if (this < that)
-		return (this);
-	else
-		return (that);
+	tmp = lst;
+	i = 0;
+	if (index < 0)
+		return (NULL);
+	while (tmp != NULL && i < index)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (tmp);
 }
