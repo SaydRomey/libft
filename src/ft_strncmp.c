@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:55:29 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/03 20:36:14 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/20 00:46:35 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,4 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (SAME);
 		i++;
 	}
-}
-
-/*
-wrapper function to compare two null terminated strings
-returns TRUE (1) if both strings are the same
-*/
-int	ft_strsame(const char *s1, const char *s2)
-{
-	if (ft_strcmp(s1, s2) == SAME)
-		return (TRUE);
-	return (FALSE);
 }

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:49:30 by cdumais           #+#    #+#             */
-/*   Updated: 2024/04/10 13:05:33 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/20 02:31:32 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstcpy(t_list *lst, t_dup_fptr dup_cont, t_del_fptr del_cont);
 // 
 void	ft_lstswap(t_list *a, t_list *b);
-// void	ft_lstswap_nodes(t_list **head, t_list *a, t_list *b);
 void	ft_lstswitch(t_list **head, t_list *a, t_list *b);
 t_list	*ft_lstsort(t_list *lst, t_cmp cmp_func);
-// void	ft_lstsort_list(t_list *lst, t_cmp cmp_func);
 // 
 t_list	*ft_lstget(t_list *lst, int index);
 // 

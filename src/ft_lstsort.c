@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 12:09:39 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/03 20:43:59 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:31:24 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,3 @@ t_list	*ft_lstsort(t_list *lst, t_cmp cmp_func)
 	}
 	return (lst);
 }
-
-/*
-sorts the linked list 'lst' in place in ascending order
-based on the comparison function 'cmp_func'
-does nothing if 'lst' is NULL
-or if any node in 'lst' has a null content.
-** (needs more tests..) *
-*/
-// void	ft_lstsort_list(t_list *lst, t_cmp cmp_func)
-// {
-// 	t_list	*curr;
-// 	t_list	*next;
-
-// 	if (!lst || ft_lstcheck(lst) == FALSE)
-// 		return ;
-// 	curr = lst;
-// 	while (curr)
-// 	{
-// 		next = curr->next;
-// 		while (next)
-// 		{
-// 			if (cmp_func(curr, next) > 0)
-// 				ft_lstswap(curr, next);
-// 			next = next->next;
-// 		}
-// 		curr = curr->next;
-// 	}
-// }

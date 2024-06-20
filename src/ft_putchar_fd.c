@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:33:10 by cdumais           #+#    #+#             */
-/*   Updated: 2023/10/10 10:03:03 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:49:00 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ returns the number of bytes written
 */
 size_t	ft_putchar(char c)
 {
-	return (ft_putchar_fd(c, FD_OUTPUT));
+	return (ft_putchar_fd(c, STDOUT));
 }

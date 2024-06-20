@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:06:02 by cdumais           #+#    #+#             */
-/*   Updated: 2023/10/10 10:05:43 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:49:00 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ returns the number of digits printed
 */
 size_t	ft_putnbr(int n)
 {
-	return (ft_putnbr_fd(n, FD_OUTPUT));
+	return (ft_putnbr_fd(n, STDOUT));
 }
 
 /* recursive implementation of ft_putnbr_fd

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 10:13:50 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/10 23:08:47 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:28:19 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 converts a hex color to rgb
 example: hex_to_rgb(0xFF0000) returns (255, 0, 0)
 */
-static t_color	hex_to_rgb(int hex)
+static t_rgb	hex_to_rgb(int hex)
 {
-	t_color	rgb;
+	t_rgb	rgb;
 
 	rgb.r = (hex >> 16) & 0xFF;
 	rgb.g = (hex >> 8) & 0xFF;
@@ -29,11 +29,11 @@ static t_color	hex_to_rgb(int hex)
 /*
 sets the rgb values of the color struct according to the color index
 ** also works without conversion
-example: palette[0] = (t_color){255, 0, 0};
+example: palette[0] = (t_rgb){255, 0, 0};
 */
-static void	set_rgb_values(int color_index, t_color *color)
+static void	set_rgb_values(int color_index, t_rgb *color)
 {
-	t_color	palette[10];
+	t_rgb	palette[10];
 
 	palette[0] = hex_to_rgb(0xFF0000);
 	palette[1] = hex_to_rgb(0xFF7F00);
@@ -65,7 +65,7 @@ new_line argument is a boolean to print a newline at the end
 void	ft_strainbow(char *str, int new_line)
 {
 	int		i;
-	t_color	color;
+	t_rgb	color;
 	int		color_index;
 
 	i = 0;

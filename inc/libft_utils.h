@@ -6,14 +6,12 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:49:35 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/21 14:49:33 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:50:17 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_UTILS_H
 # define LIBFT_UTILS_H
-
-// TODO: change FD_OUTPUT and others to STDOUT ...
 
 /* headers */
 
@@ -43,12 +41,12 @@ typedef struct s_swap
 }			t_swap;
 
 // for ft_strainbow
-typedef struct s_color
+typedef struct s_rgb
 {
 	int	r;
 	int	g;
 	int	b;
-}		t_color;
+}		t_rgb;
 
 /* function pointers */
 
@@ -135,13 +133,10 @@ typedef unsigned long long	t_u64;
 /* Standard File Descriptors */
 
 // STDIN_FILENO
-# define FD_INPUT	0
 # define STDIN		0
 // STDOUT_FILENO
-# define FD_OUTPUT	1
 # define STDOUT		1
 // STDERR_FILENO
-# define FD_ERROR	2
 # define STDERR		2
 
 /* Pipe ends */

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:41:19 by cdumais           #+#    #+#             */
-/*   Updated: 2023/10/21 01:04:09 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/20 02:30:29 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,58 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
+
+/* example cases:
+
+void	*append_exclaim(void *content)
+{
+	char	*original = (char *)content;
+	char	*new_content = malloc(ft_strlen(original) + 2); // +2 for the '!'
+	
+	if (new_content)
+	{
+		ft_strlcpy(new_content, original, ft_strlen(original) + 2);
+		ft_strlcat(new_content, "!", ft_strlen(original) + 2);
+	}
+	return (new_content);
+}
+
+void	print_list(t_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
+
+void	del(void *content)
+{
+	free(content);
+}
+
+int	main(void)
+{
+	t_list	*lst = NULL;
+	t_list	*new_lst = NULL;
+	
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("hello")));
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("world")));
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("do not panic")));
+
+	ft_printf("Before transformation:\n");
+	print_list(lst);
+	ft_printf("\n");
+
+	new_lst = ft_lstmap(lst, append_exclaim, del);
+	
+	ft_printf("After transformation:\n");
+	print_list(lst);
+	ft_printf("\n");
+
+	ft_lstclear(&lst, del);
+	ft_lstclear(&new_lst, del);
+	
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:33:06 by cdumais           #+#    #+#             */
-/*   Updated: 2023/09/07 01:00:32 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:47:22 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /*
 Writes 'len' bytes of value 'c'
-(converted to an unsigned char)
 to the string 's'
 */
 void	*ft_memset(void *s, int c, size_t len)

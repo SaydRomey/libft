@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 18:51:41 by cdumais           #+#    #+#             */
-/*   Updated: 2023/09/07 01:07:58 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:30:37 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	if (!content)
 		return (NULL);
 	new = (t_list *)malloc(sizeof(t_list));
-	if (!new || !content)
+	if (!new)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:02:42 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/09 23:11:27 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:50:14 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ and exits the program with EXIT_FAILURE
 */
 void	exit_error(char *msg)
 {
-	ft_putendl_fd(msg, FD_ERROR);
+	ft_putendl_fd(msg, STDERR);
 	exit(FAILURE);
 }
 
@@ -32,9 +32,9 @@ void	va_exit_error(const char *msg, ...)
 	va_list	args;
 
 	va_start(args, msg);
-	ft_vfprintf(FD_ERROR, msg, args);
+	ft_vfprintf(STDERR, msg, args);
 	va_end(args);
-	ft_putchar_fd('\n', FD_ERROR);
+	ft_putchar_fd('\n', STDERR);
 	exit(FAILURE);
 }
 

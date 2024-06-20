@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:28:40 by cdumais           #+#    #+#             */
-/*   Updated: 2024/04/10 12:46:13 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/20 02:25:46 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,53 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	}
 }
 
-/*
-void version to use with ft_lstiter
-** ft_lstiter(lst, &ft_lstolower) (to test) *
-*/
-// void	ft_lstolower(void *content)
-// {
-// 	char	*str;
-// 	int		i;
+/* example cases:
 
-// 	str = (char *)content;
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		str[i] = ft_tolower(str[i]);
-// 		i++;
-// 	}
-// }
+void	ft_lst_toupper(void *content)
+{
+	char	*str = (char *)content;
+
+	while (*str)
+	{
+		*str = ft_toupper((unsigned char)*str);
+		str++;
+	}
+}
+
+void	print_list(t_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
+}
+
+void	del(void *content)
+{
+	free(content);
+}
+
+int	main(void)
+{
+	t_list	*lst = NULL;
+	
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("hello")));
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("world")));
+	ft_lstadd_front(&lst, ft_lstnew(ft_strdup("do not panic")));
+
+	ft_printf("Before uppercase transformation:\n");
+	print_list(lst);
+	ft_printf("\n");
+
+	ft_lstiter(lst, ft_lst_toupper);
+	
+	ft_printf("After uppercase transformation:\n");
+	print_list(lst);
+	ft_printf("\n");
+
+	ft_lstclear(&lst, del);
+	
+	return (0);
+}
+*/

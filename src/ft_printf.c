@@ -6,7 +6,7 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:51:47 by cdumais           #+#    #+#             */
-/*   Updated: 2023/11/10 23:41:13 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:49:00 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			len += check_format(args, (char *)str, i + 1, FD_OUTPUT);
+			len += check_format(args, (char *)str, i + 1, STDOUT);
 			i++;
 		}
 		else
-			len += ft_putchar_fd(str[i], FD_OUTPUT);
+			len += ft_putchar_fd(str[i], STDOUT);
 	}
 	va_end(args);
 	return (len);
@@ -108,11 +108,11 @@ int	ft_vprintf(const char *str, va_list args)
 	{
 		if (str[i] == '%')
 		{
-			len += check_format(args, (char *)str, i + 1, FD_OUTPUT);
+			len += check_format(args, (char *)str, i + 1, STDOUT);
 			i++;
 		}
 		else
-			len += ft_putchar_fd(str[i], FD_OUTPUT);
+			len += ft_putchar_fd(str[i], STDOUT);
 	}
 	return (len);
 }

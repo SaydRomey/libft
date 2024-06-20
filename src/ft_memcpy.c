@@ -6,15 +6,15 @@
 /*   By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:25:46 by cdumais           #+#    #+#             */
-/*   Updated: 2023/09/07 01:11:06 by cdumais          ###   ########.fr       */
+/*   Updated: 2024/06/18 22:47:50 by cdumais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 
 /*
-Copies n bytes from memory area src to memory area dst.
-If dst and src overlap, behavior is undefined.
+copies n bytes from memory area src to memory area dst
+if dst and src overlap, behavior is undefined
 */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

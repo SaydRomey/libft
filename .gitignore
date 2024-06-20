@@ -1,0 +1,12 @@
+
+# static library file
+libft.a
+
+# object files
+*.o
+
+# vim swap files
+.*.swp
+
+# macOS folder metadata
+.DS_Store
