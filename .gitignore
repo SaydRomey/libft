@@ -3,6 +3,7 @@
 libft.a
 
 # object files
+obj
 *.o
 
 # vim swap files

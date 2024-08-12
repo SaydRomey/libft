@@ -6,7 +6,7 @@
 #    By: cdumais <cdumais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 18:09:54 by cdumais           #+#    #+#              #
-#    Updated: 2024/06/20 16:14:54 by cdumais          ###   ########.fr        #
+#    Updated: 2024/08/11 20:48:33 by cdumais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,7 +134,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@if [ -n "$(wildcard $(OBJS)*.o)" ]; then \
+	@if [ -n "$(wildcard $(OBJ_DIR))" ]; then \
 		$(REMOVE) $(OBJ_DIR); \
 		echo "[$(BOLD)$(PURPLE)$(NAME)$(RESET)] \
 		$(GREEN)Object files removed$(RESET)"; \
