@@ -1,8 +1,4 @@
 
-(WIP) : Links to functions not finished
-
----
-
 # libft
 
 Welcome to `libft`, the first project in the 42 Common Core curriculum!  
