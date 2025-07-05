@@ -3,82 +3,97 @@
 
 Welcome to `libft`, the first project in the 42 Common Core curriculum!  
 This project introduces the basics of C programming and library development by implementing a standard C library.  
-It is designed to strengthen your understanding of algorithms, memory management, and function implementation.  
+It is designed to strengthen our understanding of algorithms, memory management, and function implementation.  
+
+---
 
 ## Project Description
 
-The goal of `libft` is to reimplement functions from the standard C library, as well as some additional utility functions, 
-to create a custom library that will be reused in future projects.
+The goal of `libft` is to reimplement functions from the standard C library, 
+as well as some additional utility functions, 
+to create a custom library that will be reused in future projects.  
 
-### Project PDFs
+> [!NOTE]  
+> Later projects allow using this library, as well as improving it with other functions as needed.  
+> This is a modified personnal version used during my curriculum
+
+---
+
+## Instructions
+
+[Take a look at the `libft` project instructions](./libft_instructions.md)
+
+<!-- ### Project PDFs
 - [English Version](https://github.com/SaydRomey/42_ressources/blob/main/pdf/libft_en.pdf)
-- [French Version](https://github.com/SaydRomey/42_ressources/blob/main/pdf/ft_irc_fr.pdf)
+- [French Version](https://github.com/SaydRomey/42_ressources/blob/main/pdf/ft_irc_fr.pdf) -->
+
+---
 
 Below, you’ll find a categorized list of all the functions included in this repository.
 
 ### Libc Functions
 Implementing functions from the `libc`.
 
-| Function | Description |
-|----------|-------------|
-| [`ft_isalpha`](./src/ft_isalpha.c) | Checks if a character is alphabetic. |
-| [`ft_isdigit`](./src/ft_isdigit.c) | Checks if a character is a digit (0-9). |
-| [`ft_isalnum`](./src/ft_isalnum.c) | Checks if a character is alphanumeric. |
-| [`ft_isascii`](./src/ft_isascii.c) | Checks if a character is in the ASCII set. |
-| [`ft_isprint`](./src/ft_isprint.c) | Checks if a character is printable. |
-| [`ft_strlen`](./src/ft_strlen.c) | Computes the length of a string. |
-| [`ft_memset`](./src/ft_memset.c) | Fills memory with a constant byte. |
-| [`ft_bzero`](./src/ft_bzero.c) | Sets memory to zero. |
-| [`ft_memcpy`](./src/ft_memcpy.c) | Copies memory from one area to another. |
+| Function                           | Description                                    |
+|------------------------------------|------------------------------------------------|
+| [`ft_isalpha`](./src/ft_isalpha.c) | Checks if a character is alphabetic.           |
+| [`ft_isdigit`](./src/ft_isdigit.c) | Checks if a character is a digit (0-9).        |
+| [`ft_isalnum`](./src/ft_isalnum.c) | Checks if a character is alphanumeric.         |
+| [`ft_isascii`](./src/ft_isascii.c) | Checks if a character is in the ASCII set.     |
+| [`ft_isprint`](./src/ft_isprint.c) | Checks if a character is printable.            |
+| [`ft_strlen`](./src/ft_strlen.c)   | Computes the length of a string.               |
+| [`ft_memset`](./src/ft_memset.c)   | Fills memory with a constant byte.             |
+| [`ft_bzero`](./src/ft_bzero.c)     | Sets memory to zero.                           |
+| [`ft_memcpy`](./src/ft_memcpy.c)   | Copies memory from one area to another.        |
 | [`ft_memmove`](./src/ft_memmove.c) | Copies memory safely from one area to another. |
-| [`ft_strlcpy`](./src/ft_strlcpy.c) | Copies a string with size limitation. |
-| [`ft_strlcat`](./src/ft_strlcat.c) | Concatenates a string with size limitation. |
-| [`ft_toupper`](./src/ft_toupper.c) | Converts a character to uppercase. |
-| [`ft_tolower`](./src/ft_tolower.c) | Converts a character to lowercase. |
-| [`ft_strchr`](./src/ft_strchr.c) | Locates the first occurrence of a character in a string. |
-| [`ft_strrchr`](./src/ft_strrchr.c) | Locates the last occurrence of a character in a string. |
-| [`ft_strncmp`](./src/ft_strncmp.c) | Compares two strings up to `n` characters. |
-| [`ft_memchr`](./src/ft_memchr.c) | Locates a byte in memory. |
-| [`ft_memcmp`](./src/ft_memcmp.c) | Compares two memory areas. |
+| [`ft_strlcpy`](./src/ft_strlcpy.c) | Copies a string with size limitation.          |
+| [`ft_strlcat`](./src/ft_strlcat.c) | Concatenates a string with size limitation.    |
+| [`ft_toupper`](./src/ft_toupper.c) | Converts a character to uppercase.             |
+| [`ft_tolower`](./src/ft_tolower.c) | Converts a character to lowercase.             |
+| [`ft_strchr`](./src/ft_strchr.c)   | Locates the first occurrence of a character in a string.  |
+| [`ft_strrchr`](./src/ft_strrchr.c) | Locates the last occurrence of a character in a string.   |
+| [`ft_strncmp`](./src/ft_strncmp.c) | Compares two strings up to `n` characters.     |
+| [`ft_memchr`](./src/ft_memchr.c)   | Locates a byte in memory.                      |
+| [`ft_memcmp`](./src/ft_memcmp.c)   | Compares two memory areas.                     |
 | [`ft_strnstr`](./src/ft_strnstr.c) | Locates a substring within a string up to `n` characters. |
-| [`ft_atoi`](./src/ft_atoi.c) | Converts a string to an integer. |
-| [`ft_calloc`](./src/ft_calloc.c) | Allocates memory and initializes it to zero. |
-| [`ft_strdup`](./src/ft_strdup.c) | Duplicates a string in allocated memory. |
+| [`ft_atoi`](./src/ft_atoi.c)       | Converts a string to an integer.               |
+| [`ft_calloc`](./src/ft_calloc.c)   | Allocates memory and initializes it to zero.   |
+| [`ft_strdup`](./src/ft_strdup.c)   | Duplicates a string in allocated memory.       |
 
 ### Additional Functions
 Implementing functions either not in the `libc`, or are part of it but in a different form.  
 These functions involved `malloc()`.
 
-| Function | Description |
-|----------|-------------|
-| [`ft_substr`](./src/ft_substr.c) | Extracts a substring from a string. |
-| [`ft_strjoin`](./src/ft_strjoin.c) | Concatenates two strings into a new allocated string. |
-| [`ft_strtrim`](./src/ft_strtrim.c) | Removes specified characters from the beginning and end of a string. |
-| [`ft_split`](./src/ft_split.c) | Splits a string into an array of substrings based on a delimiter. |
-| [`ft_itoa`](./src/ft_itoa.c) | Converts an integer to a string. |
-| [`ft_strmapi`](./src/ft_strmapi.c) | Applies a function to each character of a string. |
-| [`ft_striteri`](./src/ft_striteri.c) | Iterates over a string and applies a function to each character. |
+| Function                                 | Description                               |
+|------------------------------------------|-------------------------------------------|
+| [`ft_substr`](./src/ft_substr.c)         | Extracts a substring from a string.       |
+| [`ft_strjoin`](./src/ft_strjoin.c)       | Concatenates two strings into a new allocated string. |
+| [`ft_strtrim`](./src/ft_strtrim.c)       | Removes specified characters from the beginning and end of a string. |
+| [`ft_split`](./src/ft_split.c)           | Splits a string into an array of substrings based on a delimiter.    |
+| [`ft_itoa`](./src/ft_itoa.c)             | Converts an integer to a string.          |
+| [`ft_strmapi`](./src/ft_strmapi.c)       | Applies a function to each character of a string. |
+| [`ft_striteri`](./src/ft_striteri.c)     | Iterates over a string and applies a function to each character. |
 | [`ft_putchar_fd`](./src/ft_putchar_fd.c) | Outputs a character to a file descriptor. |
-| [`ft_putstr_fd`](./src/ft_putstr_fd.c) | Outputs a string to a file descriptor. |
+| [`ft_putstr_fd`](./src/ft_putstr_fd.c)   | Outputs a string to a file descriptor.    |
 | [`ft_putendl_fd`](./src/ft_putendl_fd.c) | Outputs a string followed by a newline to a file descriptor. |
-| [`ft_putnbr_fd`](./src/ft_putnbr_fd.c) | Outputs an integer to a file descriptor. |
+| [`ft_putnbr_fd`](./src/ft_putnbr_fd.c)   | Outputs an integer to a file descriptor.  |
 
 ---
 
 ### Bonus Functions
 Implementing linked list functions.
 
-| Function | Description |
-|----------|-------------|
-| [`ft_lstnew`](./src/ft_lstnew.c) | Creates a new linked list node. |
+| Function                                     | Description                                |
+|----------------------------------------------|--------------------------------------------|
+| [`ft_lstnew`](./src/ft_lstnew.c)             | Creates a new linked list node.            |
 | [`ft_lstadd_front`](./src/ft_lstadd_front.c) | Adds a node to the front of a linked list. |
-| [`ft_lstsize`](./src/ft_lstsize.c) | Computes the size of a linked list. |
-| [`ft_lstlast`](./src/ft_lstlast.c) | Retrieves the last node of a linked list. |
-| [`ft_lstadd_back`](./src/ft_lstadd_back.c) | Adds a node to the back of a linked list. |
-| [`ft_lstdelone`](./src/ft_lstdelone.c) | Deletes a single node from a linked list. |
-| [`ft_lstclear`](./src/ft_lstclear.c) | Clears and deletes all nodes of a linked list. |
-| [`ft_lstiter`](./src/ft_lstiter.c) | Iterates over a linked list and applies a function. |
-| [`ft_lstmap`](./src/ft_lstmap.c) | Maps a function over a linked list and creates a new list. |
+| [`ft_lstsize`](./src/ft_lstsize.c)           | Computes the size of a linked list.        |
+| [`ft_lstlast`](./src/ft_lstlast.c)           | Retrieves the last node of a linked list.  |
+| [`ft_lstadd_back`](./src/ft_lstadd_back.c)   | Adds a node to the back of a linked list.  |
+| [`ft_lstdelone`](./src/ft_lstdelone.c)       | Deletes a single node from a linked list.  |
+| [`ft_lstclear`](./src/ft_lstclear.c)         | Clears and deletes all nodes of a linked list. |
+| [`ft_lstiter`](./src/ft_lstiter.c)           | Iterates over a linked list and applies a function. |
+| [`ft_lstmap`](./src/ft_lstmap.c)             | Maps a function over a linked list and creates a new list. |
 
 
 ---
@@ -107,7 +122,7 @@ Separate Project Integration ([see *get_next_line* pdf](https://github.com/SaydR
 | Function | Description |
 |----------|-------------|
 | [`get_next_line`](./src/get_next_line.c#L42) | Reads a single line from a file descriptor. |
-| [`get_next_line_bonus`](./src/get_next_line.c#L66)) | Extended version of `get_next_line` supporting multiple file descriptors. |
+| [`get_next_line_bonus`](./src/get_next_line.c#L66) | Extended version of `get_next_line` supporting multiple file descriptors. |
 
 ---
 
